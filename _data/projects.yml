@@ -1,0 +1,22 @@
+# projects array
+# links array
+
+projects:
+ - name: Cosmic Turtle
+   info: Start your engine put on your goggles and get ready to a amazing adventure as a badass turtle who's fly in the endless cosmic space. <br> Cosmic Turtle is a 2D endless runner game where you fly around the space as a turtle who's avoiding asteroids to stay alive.
+   role: Programmer
+   image: "https://lh4.ggpht.com/iL5e7AGQTj-ZR5kcMOzKnoDHl5nyoMYIvTc_zs-L5k7h3LnLaN1waUPxvYHIbD-hYQ=w300-rw"
+   links:
+    - name: Google Play
+      link: "https://play.google.com/store/apps/details?id=com.KeyMick.CosmicTurtle&hl=fi"
+   
+ - name: Wolf Track
+   info:
+   role: Programmer
+   image: "/images/projects/wolf_track.webp"
+   links:
+    - name: Official Website
+      link: "http://www.wolftrack.fi/english.html"
+    - name: Google Play
+      link: "https://play.google.com/store/apps/details?id=com.KyAMK.SJP"
+
