@@ -13,7 +13,7 @@ projects:
  - name: Wolf Track
    info:
    role: Programmer
-   image: "/images/projects/wolf_track.webp"
+   image: "https://lh6.ggpht.com/lcgoJI6GRnyvUVS_PpGT2ESFHehYey9hJMJEQRgbNwUa0FWDf0d7M0FYCbqBbMJmoEKL=w300-rw"
    links:
     - name: Official Website
       link: "http://www.wolftrack.fi/english.html"

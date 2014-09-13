@@ -4,10 +4,10 @@ title: My Portfolio
 permalink: /portfolio/
 ---
 
-Projects:
+## Projects:
 {% for project in site.data.projects.projects %}
 
-## {{project.name}}
+### {{project.name}}
 
 
   {% if project.image && project.image != "" %}
@@ -15,7 +15,7 @@ Projects:
   {% endif %}
   
   {% if project.links %}
-### Links
+#### Links
   
   {% for link in project.links %}
   
