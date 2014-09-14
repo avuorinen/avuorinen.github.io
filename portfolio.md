@@ -4,26 +4,41 @@ title: My Portfolio
 permalink: /portfolio/
 ---
 
-## Projects:
 {% for project in site.data.projects.projects %}
 
 ### {{project.name}}
 
-
-  {% if project.image && project.image != "" %}
+{% if project.image && project.image != "" %}
   <img src="{{ project.image }}" class="icon">
-  {% endif %}
-  
-  {% if project.links %}
+{% endif %}
+
+<strong> Role </strong>{{ project.role }}
+
+{% if project.type %}
+
+<strong> Type </strong>{{ project.type }}
+
+{% endif %}
+
+{% if project.info %}
+
+#### Information  
+<hr>
+  {{ project.info }}
+<hr>
+{% endif %}
+
+
+{% if project.links %}
 #### Links
-  
+
   {% for link in project.links %}
-  
+
   <a href="{{ link.link }}">{{ link.name }}</a>
-  
+
   {% endfor %}
-  {% endif %}
-  
+
+{% endif %}
+
 
 {% endfor %}
-

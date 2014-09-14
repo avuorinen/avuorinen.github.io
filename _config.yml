@@ -1,11 +1,11 @@
 # Site settings
-title: Atte Vuorinen - Work in Progress!
+title: Atte Vuorinen
 email: attevuorinen@gmail.com
 author: Atte Vuorinen
 description: ""
 baseurl: ""
 url: "http://avuorinen.github.io/"
-google_analytics: 
+google_analytics: UA-54772984-1
 
 # Build settings
 markdown: kramdown

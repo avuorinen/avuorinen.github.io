@@ -6,6 +6,7 @@ permalink: /about/
 
 Atte Vuorinen is programmer and game developer.
 
+
 ### Follow Me
 
 <a href="http://fi.linkedin.com/pub/atte-vuorinen/7b/675/888">

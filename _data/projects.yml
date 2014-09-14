@@ -1,19 +1,39 @@
 # projects array
+#   name, type, info, role, image, links
+
 # links array
+#   name, link
+
+# image size is 150x150px
 
 projects:
+ - name: AGUI
+   type: Framework
+   info: GUI toolkit for Unity3D.
+   role: Developper
+   image: "/images/projects/AGUI.png"
+   links:
+   - name: GitHub
+     link: "https://github.com/avuorinen/AGUI"
+
  - name: Cosmic Turtle
-   info: Start your engine put on your goggles and get ready to a amazing adventure as a badass turtle who's fly in the endless cosmic space. <br> Cosmic Turtle is a 2D endless runner game where you fly around the space as a turtle who's avoiding asteroids to stay alive.
+   type: Game
+   info: Cosmic Turtle is a 2D endless runner game where you fly around the space as a turtle who's avoiding asteroids to stay alive.
+         <br><br>
+         I developed Cosmic Turtle with my friend <a href="http://fi.linkedin.com/pub/mikko-riihel%C3%A4/86/22/4b2">Mikko Riihelä</a>.
    role: Programmer
-   image: "https://lh4.ggpht.com/iL5e7AGQTj-ZR5kcMOzKnoDHl5nyoMYIvTc_zs-L5k7h3LnLaN1waUPxvYHIbD-hYQ=w300-rw"
+   image: "/images/projects/cosmic_turtle.webp"
    links:
     - name: Google Play
       link: "https://play.google.com/store/apps/details?id=com.KeyMick.CosmicTurtle&hl=fi"
    
  - name: Wolf Track
-   info:
+   type: Game
+   info: A breathtaking basketball adventure with the finnish wolf pack!
+         <br><br>
+         I worked with <a href="https://fi-fi.facebook.com/GameDesignKyamk">Medusa Game Design</a>.
    role: Programmer
-   image: "https://lh6.ggpht.com/lcgoJI6GRnyvUVS_PpGT2ESFHehYey9hJMJEQRgbNwUa0FWDf0d7M0FYCbqBbMJmoEKL=w300-rw"
+   image: "/images/projects/wolf_track.webp"
    links:
     - name: Official Website
       link: "http://www.wolftrack.fi/english.html"
