@@ -3,9 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-
-Atte Vuorinen is programmer and game developer.
-
+Work in progress!
 
 ### Follow Me
 
