@@ -13,7 +13,7 @@ What I do
 
 * Programming
 * Game Development
-* Many other things with passion!
+* Many other things!
 
 Anyway feel to free contact me if you have anything to ask!
 
