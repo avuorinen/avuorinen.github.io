@@ -23,9 +23,12 @@ permalink: /portfolio/
 {% if project.info %}
 
 #### Information  
-<hr>
+---
+
   {{ project.info }}
-<hr>
+
+---
+
 {% endif %}
 
 

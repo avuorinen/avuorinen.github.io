@@ -1,9 +1,22 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
-Work in progress!
+
+<span class="small">(Still work in progress!)</span>
+
+Hello! <br>
+I'm **Atte Vuorinen** from Finland.
+
+What I do
+
+* Programming
+* Game Development
+* Many other things with passion!
+
+Anyway feel to free contact me if you have anything to ask!
+
 
 ### Follow Me
 
