@@ -1,7 +1,9 @@
 ---
 layout: page
-title: My Portfolio
+title: Portfolio
 permalink: /portfolio/
+feature-color: "#bada55"
+header-text: Projects where I have worked.
 ---
 
 {% for project in site.data.projects.projects %}

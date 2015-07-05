@@ -1,25 +1,38 @@
 ---
 layout: page
-title: About Me
+title: About
 permalink: /about/
+feature-color: "#55daca"
+header-text: Information about me.
 ---
 
-<span class="small">(Still work in progress!)</span>
+Hello I'm **Atte Vuorinen** Programmer and Game Developer from Finland.
 
-Hello! <br>
-I'm **Atte Vuorinen** from Finland.
+**What I do**
 
-What I do
-
-* Programming
+* Application Development
 * Game Development
-* Many other things!
+* Many more!
 
-Anyway feel to free contact me if you have anything to ask!
+**I have experience of following**
 
+**Programming Languages**
 
-### Follow Me
+* C#
+* Haxe
+* Java Script
+* C/C++
+* Python
 
-<a href="http://fi.linkedin.com/pub/atte-vuorinen/7b/675/888">
-	<img src="{{ site.baseurl }}/images/social/Logo-59px-R.png" class="social">
-</a>
+**Programs**
+
+* Unity3D
+* Mono Develop
+* Visual Studio
+* Git
+* NodeJS
+* Blender
+* Gimp
+* Inkscape
+* Krita
+* Many more!

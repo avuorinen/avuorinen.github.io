@@ -12,7 +12,7 @@ projects:
    type: Framework
    info: GUI toolkit for Unity3D.
    role: Developper
-   image: "/images/projects/AGUI.png"
+   image: "/img/projects/AGUI.png"
    links:
    - name: GitHub
      link: "https://github.com/avuorinen/AGUI"
@@ -23,7 +23,7 @@ projects:
          <br><br>
          I developed Cosmic Turtle with my friend <a href="http://fi.linkedin.com/pub/mikko-riihel%C3%A4/86/22/4b2">Mikko Riihelä</a>.
    role: Programmer
-   image: "/images/projects/cosmic_turtle.png"
+   image: "/img/projects/cosmic_turtle.png"
    links:
     - name: Google Play
       link: "https://play.google.com/store/apps/details?id=com.KeyMick.CosmicTurtle&hl=fi"
@@ -34,9 +34,7 @@ projects:
          <br><br>
          I worked with <a href="https://fi-fi.facebook.com/GameDesignKyamk">Medusa Game Design</a>.
    role: Programmer
-   image: "/images/projects/wolf_track.png"
+   image: "/img/projects/wolf_track.png"
    links:
     - name: Official Website
       link: "http://www.wolftrack.fi/english.html"
-    - name: Google Play
-      link: "https://play.google.com/store/apps/details?id=com.KyAMK.SJP"
