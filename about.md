@@ -19,9 +19,9 @@ Hello I'm **Atte Vuorinen** Programmer and Game Developer from Finland.
 **Programming Languages**
 
 * C#
+* C/C++
 * Haxe
 * Java Script
-* C/C++
 * Python
 
 **Programs**
@@ -35,4 +35,4 @@ Hello I'm **Atte Vuorinen** Programmer and Game Developer from Finland.
 * Gimp
 * Inkscape
 * Krita
-* Many more!
+* Others
