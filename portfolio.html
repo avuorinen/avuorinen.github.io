@@ -1,0 +1,61 @@
+---
+layout: blank
+title: Portfolio
+permalink: /portfolio/
+#feature-color: "#bada55"
+#header-text: What I have done.
+---
+
+<article>
+<header>
+  <h2>Portfolio</h2>
+</header>
+</article>
+
+{% for project in site.data.projects.projects %}
+
+<!---->
+<article class='portfolio'>
+
+  <header>
+    <h2>{{project.name}}</h2>
+  </header>
+
+  {% if project.image && project.image != "" %}
+  <div class="icon">
+    <img src="{{ project.image }}">
+  </div>
+  {% endif %}
+  </th>
+  <th>
+
+<div>
+<strong> Role: </strong>{{ project.role }}
+<br>
+{% if project.type %}
+  <strong> Type: </strong>{{ project.type }}
+  <br>
+{% endif %}
+
+{% if project.links %}
+<strong>Links</strong>
+<br>
+  {% for link in project.links %}
+  <a href="{{ link.link }}">{{ link.name }}</a>
+  {% endfor %}
+
+{% endif %}
+</div>
+
+<div>
+  <br>
+  {% if project.info %}
+      <blockquote>
+      {{ project.info }}
+    </blockquote>
+  {% endif %}
+</div>
+
+</article>
+
+{% endfor %}

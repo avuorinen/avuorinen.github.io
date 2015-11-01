@@ -1,75 +1,39 @@
-# SITE CONFIGURATION
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://avuorinen.github.io" # the base hostname & protocol for your site
+title: "Atte Vuorinen"
+author: "Atte Vuorinen"
+description: ""
+#subheading: "Really cool blog about ... something"
+more: "read more"
+url: "http://avuorinen.github.io"
+#baseurl: "" # comment out if in root directory
 
-# THEME-SPECIFIC CONFIGURATION
-theme:
-  # Meta
-  title: Atte Vuorinen
-  avatar: avatar.png
-  gravatar: f3225ec4a033ead15e910f0167b43697 # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
+comments:
+#    disqus: ""
+#    isso: "comments.mysite.org"
 
-  # Header and footer text
-  header_text: >
+style:
+#    body: "whitesmoke"
+    padding: 33%
+    anchor: "#46f"
+    serif-heading: true
+    nav: "#181818"
+    #headline: "#06f"
+    description: "white"
+    article:
+        odd: "#ffffff"
+        even: "#222222"
 
-   <br>
-   <h1>Welcome!</h1>
-   <br>
+links:
+  - github: "https://github.com/avuorinen"
+  - linkedin: "https://www.linkedin.com/pub/atte-vuorinen/7b/675/888"
+  #- twitter: "https://twitter.com/"
+  #- google-plus: "https://plus.google.com/"
+  #- reddit: "https://www.reddit.com/user/"
+  #- youtube: "https://www.youtube.com/user/"
+  #- steam: "http://steamcommunity.com/id/"
 
-  header_text_feature_image:
-  footer_text: >
-   Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
-
-  # Icons
-  rss: false
-  email_address: AtteVuorinen@gmail.com # Full email address, e.g. "sam@example.com"
-  behance:
-  bitbucket:
-  dribbble:
-  facebook:
-  flickr:
-  github: "avuorinen"
-  google_plus:
-  instagram:
-  linkedin: https://www.linkedin.com/pub/atte-vuorinen/7b/675/888 # Full URL
-  pinterest:
-  reddit:
-  soundcloud:
-  stack_exchange:  # Full URL
-  steam:
-  tumblr:
-  twitter:
-  wordpress:
-  youtube:
-
-  # Scripts
-  google_analytics: # Tracking ID, e.g. "UA-000000-01"
-  disqus_shortname:
-  katex: true # Enable if using math markup
-
-  # Localization strings
-  str_follow_on: "Follow on"
-  str_rss_follow: "Follow RSS feed"
-  str_email: "Email"
-  str_next: "Next"
-  str_prev: "Prev"
-  str_continue_reading: "Continue reading"
-
-  # Colours, typography and padding
-  # Open the "_sass > base" folder, and open "_variables.scss"
-  google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
-
-  # Post navigation
-  post_navigation: false
-
-# PAGINATION
-paginate: 5
-paginate_path: "blog/page:num"
-
-# BUILD SETTINGS
-markdown: kramdown
-highlighter: pygments
-sass:
-  sass_dir: _sass
-  style: :compressed
+paginate: 10
+excerpt_separator: "\n\n\n" # excerpt ends after two blank lines
+defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
+gems:
+  - jekyll-feed # include feed plugin (supported by gh-pages)
+  - jekyll-paginate
