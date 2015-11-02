@@ -28,7 +28,8 @@
     header p
         color: reduce($background, 60%)
     div a
-        font-weight: if($anchor, inherit, 400)
+        #font-weight: if($anchor, inherit, 400)
+          font-weight: if($anchor, normal, 400)
         #color: if($anchor, reduce($anchor, 5%), inherit)
         color: if($anchor, reduce(#f92672, 5%), #f92672)
         &:hover
