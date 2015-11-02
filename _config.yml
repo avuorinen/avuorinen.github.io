@@ -15,12 +15,12 @@ style:
     padding: 33%
     anchor: "#46f"
     serif-heading: true
-    nav: "#181818"
+    nav: "#323252" #181818 #3F51B5 #38384A #3C3C65 #323252
     #headline: "#06f"
     description: "white"
     article:
         odd: "#ffffff"
-        even: "#222222"
+        even: "#3C3C65" #"#222222"
 
 links:
   - github: "https://github.com/avuorinen"
