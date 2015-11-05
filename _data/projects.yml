@@ -11,7 +11,7 @@ projects:
  - name: AGUI
    type: Framework
    info: GUI toolkit for Unity3D 4.3.
-   role: Developper
+   role: Developer
    image: "/img/projects/AGUI.png"
    links:
    - name: GitHub
