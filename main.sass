@@ -57,12 +57,14 @@ article:nth-of-type(even)
     //background-image: url("img/grid.jpg")
     background: linear-gradient( rgba($even, $article-alpha), rgba($even, $article-alpha)), url("img/article.jpg")
     background-attachment: fixed
+    background-size: cover
 
 
 article:nth-of-type(odd)
     +article_background($odd, $anchor)
     background: linear-gradient( rgba($odd, $article-alpha), rgba($odd, $article-alpha)), url("img/article.jpg")
     background-attachment: fixed
+    background-size: cover
 
 #paginate:nth-child(even)
     background: $even
