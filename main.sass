@@ -13,6 +13,9 @@ $description: {% if site.style.description %}{{ site.style.description }}{% else
 $odd: {% if site.style.article.odd %}{{ site.style.article.odd }}{% else %}white{% endif %}
 $even: {% if site.style.article.even %}{{ site.style.article.even }}{% else %}#222{% endif %}
 
+$article-alpha: {% if site.style.article.image-alpha %}{{ site.style.article.image-alpha }}{% else %}1.0{% endif %}
+
+
 body
     +body_background($body, $padding)
     > header, > footer
@@ -27,7 +30,7 @@ body
 body > header h1
     font-weight: bold
 
-h1, h2, h3, h4, h5, h6 
+h1, h2, h3, h4, h5, h6
     font-family: "Gentium Basic", serif
     letter-spacing: 2px
     header &
@@ -51,9 +54,15 @@ nav ul
 
 article:nth-of-type(even)
     +article_background($even, $anchor)
+    //background-image: url("img/grid.jpg")
+    background: linear-gradient( rgba($even, $article-alpha), rgba($even, $article-alpha)), url("img/article.jpg")
+    background-attachment: fixed
+
 
 article:nth-of-type(odd)
     +article_background($odd, $anchor)
+    background: linear-gradient( rgba($odd, $article-alpha), rgba($odd, $article-alpha)), url("img/article.jpg")
+    background-attachment: fixed
 
 #paginate:nth-child(even)
     background: $even
