@@ -21,7 +21,7 @@ style:
     article:
         odd: "#ffffff"
         even: "#3C3C65" #"#222222"
-        image-alpha: 0.985
+        image-alpha: 0.9825
 
 links:
   - github: "https://github.com/avuorinen"
