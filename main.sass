@@ -15,6 +15,8 @@ $even: {% if site.style.article.even %}{{ site.style.article.even }}{% else %}#2
 
 $article-alpha: {% if site.style.article.image-alpha %}{{ site.style.article.image-alpha }}{% else %}1.0{% endif %}
 
+$accent-color: {% if site.style.accent-color %}{{site.style.accent-color}}{% else %}#F80D62{% endif %}
+
 
 body
     +body_background($body, $padding)
@@ -74,6 +76,50 @@ article:nth-of-type(odd)
     background: $odd
     color: reduce($odd, 100%)
 
-    
+.icon
+    width: 150px
+    height: auto
+    padding-right: 1.5em
+    float: left
+    display: inline-block
+
+article.portfolio
+    div blockquote
+        display: inline-block
+
+    div
+        display:  block
+
+    th, td
+        border-color: rgba(0, 0, 0, 0)
+
+    tr:hover
+        background-color: rgba(0, 0, 0, 0)
+
+header.nav-header
+    #background: #3C3C65
+    display: table-cell
+    padding-bottom: 0px
+    padding-top: 0px
+    width: 100%
+
+header.logo-header
+    padding: 0px
+
+    h1.logo
+        background: $accent-color
+        display: table-cell
+        padding: 0.3em
+        padding-left: 0.15em
+        padding-right: 0.15em
+        text-align: center
+        vertical-align: middle
+
+        a:hover
+            color: darken($accent-color, 25%)
+
+a#selected
+    padding-bottom: 0.9em
+    border-bottom: 0.4em solid $accent-color
 
 @import vendor
