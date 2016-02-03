@@ -17,9 +17,14 @@ $article-alpha: {% if site.style.article.image-alpha %}{{ site.style.article.ima
 
 $accent-color: {% if site.style.accent-color %}{{site.style.accent-color}}{% else %}#F80D62{% endif %}
 
+// Viewport widths
+$viewport-small: 32em
+$viewport-medium: 48em
+$viewport-large: 64em
 
 body
     +body_background($body, $padding)
+
     > header, > footer
         background: $nav
         color: reduce($nav, 100%)
@@ -55,18 +60,59 @@ nav ul
 {% endif %}
 
 article:nth-of-type(even)
-    +article_background($even, $anchor)
-    //background-image: url("img/grid.jpg")
+    +article_background($even, $anchor, $odd)
+
+article:nth-of-type(odd)
+    +article_background($odd, $anchor, $even)
+
+article:nth-of-type(even).background
     background: linear-gradient( rgba($even, $article-alpha), rgba($even, $article-alpha)), url("img/article.jpg")
     background-attachment: fixed
     background-size: cover
 
-
-article:nth-of-type(odd)
-    +article_background($odd, $anchor)
+article:nth-of-type(odd).background
     background: linear-gradient( rgba($odd, $article-alpha), rgba($odd, $article-alpha)), url("img/article.jpg")
     background-attachment: fixed
     background-size: cover
+
+article:first-of-type:nth-of-type(odd)
+    +article_background($odd, $anchor, $even)
+    background-attachment: fixed
+    background-size: cover
+
+article.image
+    background: url("img/article.jpg")
+    padding: 0px
+    display:inline-block
+    background-attachment: fixed
+    background-size: cover
+    > div
+        padding: 1em calc(#{$padding} - 6.6em)
+        margin-bottom: 0px
+        display:inline-block
+        background-attachment: fixed
+        background-size: cover
+
+article:nth-of-type(odd).image
+    div.overlay
+        background: linear-gradient( rgba($odd, $article-alpha), rgba($odd, $article-alpha))
+
+article:nth-of-type(even).image
+    div.overlay
+        background: linear-gradient( rgba($even, $article-alpha), rgba($even, $article-alpha))
+
+.article-alpha
+    opacity: $article-alpha
+
+@media screen and (max-width: $viewport-small)
+
+    body > *
+        padding-right: 0.6rem
+        padding-left: 0.6rem
+
+    //article
+        //padding-right: calc(#{$padding} / 2.125 - 3.3em)
+        //padding-left: calc(#{$padding} / 2.125 - 3.3em)
 
 #paginate:nth-child(even)
     background: $even
@@ -105,9 +151,18 @@ header.nav-header
 
 header.logo-header
     padding: 0px
+    background: linear-gradient( rgba($even, 0.5), rgba($even, 0.5)), url("img/header.jpg")
+    background-attachment: scroll
+    background-size: cover
+    background-position: 50% 75%
+    padding-bottom: 10em
+
+    //&.main
+        //background-position: bottom
+        padding-bottom: 20em
 
     h1.logo
-        background: $accent-color
+        //background: $accent-color
         display: table-cell
         padding: 0.3em
         padding-left: 0.15em
@@ -116,10 +171,17 @@ header.logo-header
         vertical-align: middle
 
         a:hover
-            color: darken($accent-color, 25%)
+            color: lighten($even, 20%)
+            //color: darken($accent-color, 25%)
 
 a#selected
     padding-bottom: 0.9em
-    border-bottom: 0.4em solid $accent-color
+    //border-bottom: 0.25em solid $accent-color
+    border-bottom: 0.25em solid lighten($even, 20%)
+
+figure.highlight
+    margin: 0px
+    padding: 0px
 
 @import vendor
+@import highlight
