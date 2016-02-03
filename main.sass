@@ -65,6 +65,11 @@ article:nth-of-type(even)
 article:nth-of-type(odd)
     +article_background($odd, $anchor, $even)
 
+article:first-of-type:nth-of-type(odd)
+    +article_background($odd, $anchor, $even)
+    background-attachment: fixed
+    background-size: cover
+
 article:nth-of-type(even).background
     background: linear-gradient( rgba($even, $article-alpha), rgba($even, $article-alpha)), url("img/article.jpg")
     background-attachment: fixed
@@ -72,11 +77,6 @@ article:nth-of-type(even).background
 
 article:nth-of-type(odd).background
     background: linear-gradient( rgba($odd, $article-alpha), rgba($odd, $article-alpha)), url("img/article.jpg")
-    background-attachment: fixed
-    background-size: cover
-
-article:first-of-type:nth-of-type(odd)
-    +article_background($odd, $anchor, $even)
     background-attachment: fixed
     background-size: cover
 
@@ -126,6 +126,7 @@ article:nth-of-type(even).image
     width: 150px
     height: auto
     padding-right: 1.5em
+    margin-bottom: 0px
     float: left
     display: inline-block
 
@@ -133,9 +134,11 @@ article.portfolio
     div blockquote
         display: inline-block
 
-    div
-        display:  block
+    div.info
+        display: inline-block
 
+        @media screen and (max-width: $viewport-medium)
+            margin-bottom: 3.5em
     th, td
         border-color: rgba(0, 0, 0, 0)
 
@@ -155,7 +158,8 @@ header.logo-header
     background-attachment: scroll
     background-size: cover
     background-position: 50% 75%
-    padding-bottom: 10em
+    height: 15em
+    //padding-bottom: 10em
 
     //&.main
         //background-position: bottom
@@ -173,11 +177,18 @@ header.logo-header
         a:hover
             color: lighten($even, 20%)
             //color: darken($accent-color, 25%)
+    #title
+        position: relative
+        top: 2em
+        text-align: center
+
+        & >*
+            margin: 0px
 
 a#selected
     padding-bottom: 0.9em
     //border-bottom: 0.25em solid $accent-color
-    border-bottom: 0.25em solid lighten($even, 20%)
+    border-bottom: 0.25em solid lighten($even, 27.5%)
 
 figure.highlight
     margin: 0px

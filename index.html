@@ -30,8 +30,44 @@ permalink: /
   <article>
 
     <header>
-      <h2>Blog post coming soon!</h2>
+      <!--<h2>Blog post coming soon!</h2>
       <small style="font-size:small;">Maybe a month or two...</small>
+    -->
+
+    <script>
+
+      (function() {
+        var quates = [
+            "<h2>First blog post is comming soon!</h2> <small style='font-size:small;'>Maybe a month or two... </small>",
+            "<h2>Welcome to void*</h2>",
+            "<h2>0<span style='text-transform:none;'>x</span>"+(Math.abs(Math.random()*0xFFFFFFFF<<1)).toString(16)+"</h2>"
+          ];
+        var result = "";
+
+        function getIndex (length) {
+          var index = 0;
+          for(var i = 0; i < 3; i++)
+          {
+            index = Math.floor((Math.random() * length));
+
+            if(index === 0)
+            {
+              break;
+            }
+          }
+
+          return index;
+        }
+
+        var index = getIndex(quates.length);
+
+        result = quates[index];
+        document.write(result);
+
+      })();
+
+    </script>
+
     </header>
   </article>
 

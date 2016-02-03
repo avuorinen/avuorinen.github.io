@@ -5,29 +5,29 @@ permalink: /portfolio/
 #feature-color: "#bada55"
 #header-text: What I have done.
 ---
-
+<!--
 <article>
 <header>
   <h2>Portfolio</h2>
 </header>
 </article>
-
+-->
 {% for project in site.data.projects.projects %}
 
 <!---->
-<article class='portfolio background'>
 
+<article class='portfolio {% if project != site.data.projects.projects[0] %}background{% endif %}'>
   <header>
     <h2>{{project.name}}</h2>
   </header>
 
-  {% if project.image && project.image != "" %}
+  {% if project.image and project.image != "" %}
   <div class="icon">
     <img src="{{ project.image }}">
   </div>
   {% endif %}
 
-<div>
+<div class="info">
 <strong> Role: </strong>{{ project.role }}
 <br>
 {% if project.type %}

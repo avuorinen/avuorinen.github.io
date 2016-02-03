@@ -20,8 +20,8 @@ projects:
  - name: Cosmic Turtle
    type: Game
    info: Cosmic Turtle is a 2D endless runner game where you fly around the space as a turtle who's avoiding asteroids to stay alive.
-         <br><br>
-         I developed Cosmic Turtle game with my friend <a href="http://fi.linkedin.com/pub/mikko-riihel%C3%A4/86/22/4b2">Mikko Riihelä</a> while we were at school.
+         <br>
+         I developed Cosmic Turtle game with my friend <a href="http://fi.linkedin.com/pub/mikko-riihel%C3%A4/86/22/4b2">Mikko Riihelä</a> while we were at vocational college.
    role: Programmer
    image: "/img/projects/cosmic_turtle.png"
    links:
@@ -31,7 +31,7 @@ projects:
  - name: Wolf Track
    type: Game
    info: A breathtaking basketball adventure with the finnish wolf pack!
-         <br><br>
+         <br>
          Subcontracting project where I worked with <a href="https://fi-fi.facebook.com/GameDesignKyamk">Medusa Game Design</a>.
    role: Programmer
    image: "/img/projects/wolf_track.png"
