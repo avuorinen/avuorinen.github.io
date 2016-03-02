@@ -17,6 +17,6 @@ permalink: /archive/
       {% endif %}
     {% endunless %}
 
-    <li>{{ post.date | date:"%B" }}: <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+    <li>{{ post.date | date:"%B" }}: <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} {% if post.draft %} <span class="draft"></span>{% endif %} </a></li>
   {% endfor %}
 </ul>

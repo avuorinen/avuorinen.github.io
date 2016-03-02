@@ -95,11 +95,11 @@ article.image
 
 article:nth-of-type(odd).image
     div.overlay
-        background: linear-gradient( rgba($odd, $article-alpha), rgba($odd, $article-alpha))
+        background: rgba($odd, $article-alpha)
 
 article:nth-of-type(even).image
     div.overlay
-        background: linear-gradient( rgba($even, $article-alpha), rgba($even, $article-alpha))
+        background: rgba($even, $article-alpha)
 
 .article-alpha
     opacity: $article-alpha
@@ -154,11 +154,16 @@ header.nav-header
 
 header.logo-header
     padding: 0px
-    background: linear-gradient( rgba($even, 0.5), rgba($even, 0.5)), url("img/header.jpg")
+    //background: linear-gradient( rgba($even, 0.5), rgba($even, 0.5)), url("img/header.jpg")
     background-attachment: scroll
     background-size: cover
     background-position: 50% 75%
     height: 15em
+
+    div.overlay
+        height: 100%
+        background: rgba($even, 0.5)
+
     //padding-bottom: 10em
 
     //&.main
@@ -175,7 +180,7 @@ header.logo-header
         vertical-align: middle
 
         a:hover
-            color: lighten($even, 20%)
+            color: lighten($even, 35%)
             //color: darken($accent-color, 25%)
     #title
         position: relative
@@ -189,6 +194,11 @@ a#selected
     padding-bottom: 0.9em
     //border-bottom: 0.25em solid $accent-color
     border-bottom: 0.25em solid lighten($even, 27.5%)
+
+.draft
+    color: #f80d62
+    &:after
+        content: "(DRAFT)"
 
 figure.highlight
     margin: 0px
