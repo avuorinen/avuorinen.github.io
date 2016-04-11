@@ -2,7 +2,7 @@
 layout:     default
 title:      Cmake Basics
 author:     Atte Vuorinen
-date:       2016-03-01 11:21:29
+date:       2016-04-11 11:21:29
 summary:    This is basic post about Cmake and it's usage.
 categories: cmake
 header: /img/tutorial.jpg
@@ -14,7 +14,7 @@ draft: true
 CMake is cross-platform make tool that generates
 project files for target develop environment.
 
-CMake uses *CMakeLists.txt* files for the project files.
+CMake uses *CMakeLists.txt* files for the project file generation.
 
 ## Folder Structure
 
@@ -59,6 +59,15 @@ Basic syntax elements.
 | ${*VAR*} | Accessing variable
 | COMMAND(*VAR*) | Using command
 
+## Documentation
+
+This part is meant to clear how <small><code><a href="https://cmake.org/cmake/help/v3.0/index.html">documentation</a></code></small> works.
+
+| &lt;&gt; | Required
+| [] | Optional
+| ... |  Multiple
+| A&#124;B&#124;C | Option
+
 ## Setting Project
 
 Project command allows user set project name and project languages.
@@ -68,6 +77,10 @@ Example Language options are *C*, *CXX*, *FORTRAN* and *NONE*.
 
 <small>
   <code>
+  <a href="https://cmake.org/cmake/help/v3.3/command/cmake_minimum_required.html">
+  cmake_minimum_required(VERSION major[.minor])
+  </a>
+  <br>
   <a href="https://cmake.org/cmake/help/v3.0/command/project.html">
     project(&lt;PROJECT-NAME&gt; [LANGUAGES...])
   </a>
@@ -76,7 +89,6 @@ Example Language options are *C*, *CXX*, *FORTRAN* and *NONE*.
 
 {% highlight tcl %}
 
-# Optional, but helps with certain things.
 # Sets minimum Cmake version for the project.
 cmake_minimum_required(VERSION 2.8)
 
@@ -116,7 +128,7 @@ message(${List})
 <small>
   <code>
     <a href="https://cmake.org/cmake/help/v3.0/command/file.html">
-      file(GLOB &lt;variable&gt; [files...])
+      file(GLOB variable [files...])
     </a>
   </code>
 </small>
@@ -155,10 +167,10 @@ file(GLOB MYPROJECT_SRC
 <small>
   <code>
   <a href="https://cmake.org/cmake/help/v3.0/command/add_executable.html">
-    add_executable(&lt;name&gt; [sources...])
+    add_executable(&lt;name&gt; source [sources...])
   </a> <br>
   <a href="https://cmake.org/cmake/help/v3.0/command/add_library.html">
-    add_library(&lt;name&gt; [STATIC|SHARED|MODULE] [sources...])
+    add_library(&lt;name&gt; [STATIC|SHARED|MODULE] source [sources...])
   </a>
   </code>
 </small>
@@ -176,7 +188,7 @@ Allows you add header files from directories.
 <small>
   <code>
   <a href="https://cmake.org/cmake/help/v3.0/command/target_include_directories.html">
-    target_include_directories(&lt;target&gt; &lt;INTERFACE|PUBLIC|PRIVATE&gt; [items...])
+    target_include_directories(&lt;target&gt; &lt;INTERFACE|PUBLIC|PRIVATE&gt; [directories...])
   </a>
   </code>
 </small>
@@ -195,7 +207,7 @@ When linking using *dynamic libraries*, linking order matters like normally.
 <small>
   <code>
   <a href="https://cmake.org/cmake/help/v3.0/command/target_link_libraries.html">
-  target_link_libraries(&lt;target&gt; <PRIVATE|PUBLIC|INTERFACE> &lt;lib&gt; ...)
+  target_link_libraries(&lt;target&gt; <PRIVATE|PUBLIC|INTERFACE> [libraries...])
   </a>
   </code>
 </small>
@@ -209,7 +221,7 @@ target_link_libraries(MyExec PUBLIC MyStaticLib)
 <small>
   <code>
   <a href="https://cmake.org/cmake/help/v3.0/command/target_compile_definitions.html">
-    target_compile_definitions(&lt;target&gt; <INTERFACE|PUBLIC|PRIVATE> [items...])
+    target_compile_definitions(&lt;target&gt; <INTERFACE|PUBLIC|PRIVATE> [defines...])
   </a>
   </code>
 </small>
@@ -227,11 +239,79 @@ This is the common way to use third party libraries.
 <small>
   <code>
     <a href="https://cmake.org/cmake/help/v3.0/command/add_subdirectory.html">
-    add_subdirectory(source_dir)
+    add_subdirectory(source_directory)
     </a>
   </code>
 </small>
 
 {% highlight tcl %}
 add_subdirectory(${MYPROJECT_SOURCE_DIR}/MyLibrary)
+{% endhighlight %}
+
+## Tricks
+
+Here are some neat tricks that can help,
+but they too complicated to be covered in basics.
+
+### Install
+
+Long story short, this command allows set output directory for CMake project.
+
+<small>
+  <code>
+    <a href="https://cmake.org/cmake/help/v3.0/command/install.html">
+    install(TARGETS targets...  [ARCHIVE|LIBRARY|RUNTIME] DESTINATION &lt;directory&gt;)
+    </a>
+  </code>
+</small>
+
+{% highlight tcl %}
+install(TARGETS MyExec MyStaticLib MySharedLib
+  RUNTIME DESTINATION ${MYPROJECT_SOURCE_DIR}/bin
+  ARCHIVE DESTINATION ${MYPROJECT_SOURCE_DIR}/bin/lib
+  LIBRARY DESTINATION ${MYPROJECT_SOURCE_DIR}/bin/lib
+)
+{% endhighlight%}
+
+### Visual Studio Project Folders
+
+This one allows you sort your projects using folders inside visual studio.
+
+<small>
+  <code>
+    <a href="https://cmake.org/cmake/help/v3.0/command/set_target_properties.html">
+    set_target_properties(targets... PROPERTIES FOLDER &lt;directory&gt;)
+    </a>
+  </code>
+</small>
+
+{% highlight tcl %}
+
+set_target_properties(MyExec PROPERTIES FOLDER MyProject)
+set_target_properties(MyStaticLib MySharedLib PROPERTIES FOLDER MyProject/Library)
+
+{% endhighlight %}
+
+
+# Complete Example
+
+{% highlight tcl %}
+cmake_minimum_required(VERSION 2.8)
+
+project(MYPROJECT C)
+
+# Contains 'MyStaticLib' and 'MySharedLib' projects.
+add_subdirectory(${MYPROJECT_SOURCE_DIR}/MyLibrary)
+
+file(GLOB MYPROJECT_SRC
+  ${MYPROJECT_SOURCE_DIR}/src/*.c
+  ${MYPROJECT_SOURCE_DIR}/include/*.h
+)
+
+add_executable(MyExec ${MYPROJECT_SRC})
+
+target_link_libraries(MyExec PUBLIC MyStaticLib)
+target_compile_definitions(MyExec PRIVATE USE_MYLIBRARY=1)
+
+
 {% endhighlight %}
