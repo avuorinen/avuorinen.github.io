@@ -2,7 +2,7 @@
 layout:     default
 title:      Cmake Basics
 author:     Atte Vuorinen
-date:       2016-04-11 11:21:29
+date:       2016-05-21 15:00:00
 summary:    This is basic post about Cmake and it's usage.
 categories: cmake
 header: /img/tutorial.jpg
@@ -12,13 +12,13 @@ draft: true
 # Basics
 
 CMake is cross-platform make tool that generates
-project files for target develop environment.
+project files for the target develop environment.
 
 CMake uses *CMakeLists.txt* files for the project file generation.
 
 ## Folder Structure
 
-Example folder structure:
+An example folder structure:
 
 <pre>
 MyProject
@@ -40,11 +40,11 @@ MyProject
 
 # Running CMake
 
-For first timers I suggest to use *cmake-gui* so you can easily see
+For the first timers I suggest to use *cmake-gui* so you can easily see
 what is happening and you can easily configure your CMake project.
 Other option is use CMake's command line tool.
 
-Either ways I won't cover more about running CMake,
+Either ways I won't cover more about running CMake
 you need to do some testing to figure it out yourself.
 
 
@@ -70,10 +70,10 @@ This part is meant to clear how <small><code><a href="https://cmake.org/cmake/he
 
 ## Setting Project
 
-Project command allows user set project name and project languages.
-Setting project languages is optional, but it makes sure it uses those languages.
+Project command allows user to set project name and project languages.
+Setting the project languages are optional, but it makes sure it uses those languages.
 
-Example Language options are *C*, *CXX*, *FORTRAN* and *NONE*.
+An example Language options are *C*, *CXX*, *FORTRAN* and *NONE*.
 
 <small>
   <code>
@@ -92,7 +92,7 @@ Example Language options are *C*, *CXX*, *FORTRAN* and *NONE*.
 # Sets minimum Cmake version for the project.
 cmake_minimum_required(VERSION 2.8)
 
-# Sets name of the project and the language,
+# Sets name of the project and the language
 # and <PROJECT_SOURCE_DIR>, <PROJECT_BINARY_DIR>.
 # "PROJECT" can be replaced with "MY_PROJECT"
 # <MY_PROJECT_SOURCE_DIR>
@@ -135,8 +135,8 @@ message(${List})
 
 ### Manual Way
 
-Setting source files manually is generally safer option than using automagic way,
-this is because you can manually select source files.
+Setting the source files manually is generally safer option than using automagic way
+this is because you can manually select the source files which causes less surprises and duplicates.
 
 {% highlight tcl %}
 file(GLOB MYPROJECT_SRC
@@ -149,7 +149,7 @@ file(GLOB MYPROJECT_SRC
 
 ### Automagic Way
 
-Setting source files automagically is the fastest way to use your source files,
+Setting the source files automagically is the fastest way
 this is because you don't need to add every file manually.
 
 {% highlight tcl %}
@@ -183,7 +183,7 @@ add_library(MySharedLib SHARED ${MYLIBRARY_SRC}) # .dll, .so
 {% endhighlight %}
 
 ## Including Directories
-Allows you add header files from directories.
+Allows you to add header files from the directories.
 
 <small>
   <code>
@@ -202,7 +202,7 @@ target_include_directories(myExec PUBLIC
 
 ## Linking Libraries
 
-When linking using *dynamic libraries*, linking order matters like normally.
+When linking using *dynamic libraries* linking order matters like normally using complier manually.
 
 <small>
   <code>
@@ -255,7 +255,8 @@ but they too complicated to be covered in basics.
 
 ### Install
 
-Long story short, this command allows set output directory for CMake project.
+Long story short this command allows set install process for the CMake project.
+In this case it's used to set output directory.
 
 <small>
   <code>
@@ -275,7 +276,7 @@ install(TARGETS MyExec MyStaticLib MySharedLib
 
 ### Visual Studio Project Folders
 
-This one allows you sort your projects using folders inside visual studio.
+This one allows you to sort your projects using folders inside the visual studio.
 
 <small>
   <code>
