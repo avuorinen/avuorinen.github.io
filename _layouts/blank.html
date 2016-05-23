@@ -24,18 +24,11 @@
     {% feed_meta %}
     {% if site.comments.disqus and page.comments %}<script src="//{{ site.comments.disqus }}.disqus.com/embed.js" async></script>{% endif %}
     {% if site.comments.isso and page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>{% endif %}
-
-    <!--{% if page.header %}{% else %}
-    <script>
-    (function(){
-        window.alert("Test");
-    })();
-    </script>
-    {% endif %}
-  -->
   </head>
   <body>
-  <header class="logo-header {% if page.url == "/" or page.url == "/index.html" %}main{% endif %}" style="{% if page.header %} background-image: url({{ page.header }}); background-position: 50% 50%; {% else %} background-image: url('/img/header.jpg'); {% endif %}">
+    {% assign month = site.time | date: "%-m" %}
+
+  <header class="logo-header {% if page.url == "/" or page.url == "/index.html" %}main{% endif %}" style="{% if page.header %} background-image: url({{ page.header }}); background-position: 50% 50%; {% elsif month == "5" or month == "6" month == "7" month == "8" month == "9" %} background-image: url('/img/header-summer.jpg'); {% else %} background-image: url('/img/header.jpg'); {% endif %}">
     <div class="overlay">
       {% unless site.style.headline %}<h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>{% endunless %}
     <header class="nav-header">
@@ -60,6 +53,8 @@
       <span><a href="{{ page.url }}">{% if page.author %}{{ page.author }}{% else %}{{site.author}}{% endif %}</a></span>
       <span>{% for link_hash in site.links %}{% for link in link_hash %}<a href="{{ link[1] }}"><i class="fa fa-{{ link[0] }}-square"></i></a>{% endfor %}{% endfor %}</span>
       <span>&copy; {{ site.time | date: "%Y" }}</span>
+      <span>{{ site.time | date: "%B %-d, %Y" }}</span>
+
     </footer>
   </body>
 </html>
