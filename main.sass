@@ -69,6 +69,9 @@ article:first-of-type:nth-of-type(odd)
     +article_background($odd, $anchor, $even)
     background-attachment: fixed
     background-size: cover
+    margin-top: 15em
+    border-top-color: $odd
+
 
 article:nth-of-type(even).background
     background: linear-gradient( rgba($even, $article-alpha), rgba($even, $article-alpha)), url("img/article.jpg")
@@ -144,13 +147,40 @@ article.portfolio
 
     tr:hover
         background-color: rgba(0, 0, 0, 0)
-
 header.nav-header
-    #background: #3C3C65
+    //background: #3C3C65
     display: table-cell
     padding-bottom: 0px
     padding-top: 0px
     width: 100%
+
+header#header
+    position: fixed
+
+    -webkit-transition: height 0.5s
+    -moz-transition: height 0.5s
+    -ms-transition: height 0.5s
+    -o-transition: height 0.5s
+    transition: height 0.5s
+
+    #title
+        -webkit-transition: opacity 0.5s
+        -moz-transition: opacity 0.5s
+        -ms-transition: opacity 0.5s
+        -o-transition: opacity 0.5s
+        transition: opacity 0.5s
+
+    &.smaller
+        height: 10em
+
+        #title
+            opacity: 0
+
+    &.smallest
+        height: 3.5em
+
+        #title
+            opacity: 0
 
 header.logo-header
     padding: 0px
@@ -180,7 +210,7 @@ header.logo-header
         vertical-align: middle
 
         a:hover
-            color: lighten($even, 35%)
+            color: lighten($even, 30%)
             //color: darken($accent-color, 25%)
     #title
         position: relative
@@ -191,9 +221,10 @@ header.logo-header
             margin: 0px
 
 a#selected
-    padding-bottom: 0.9em
+    padding-bottom: 0.3em
     //border-bottom: 0.25em solid $accent-color
-    border-bottom: 0.25em solid lighten($even, 27.5%)
+    //27.5%
+    border-bottom: 0.25em solid lighten($even,30%)
 
 .draft
     color: #f80d62
