@@ -2,13 +2,13 @@ function onLoad() {
 
   // Calculate once.
   var ratio = getEmPixels(document.getElementById("header"))/getEmPixels() * 240; // 240 -> 15em = 16px * 15
-  var shrink = ratio/6, //50
+  var shrink = ratio/7, //50
   shrinker = ratio/2.5, //100
-  shrinkest = ratio/1.5; //160
+  shrinkest = ratio/1.55; //160
 
   onLoad.shrinkLevel = 0;
 
-  window.addEventListener("scroll", function(event) {
+  function onScroll(event) {
 
     var header = document.getElementById("header");
     var distanceY = window.pageYOffset || document.documentElement.scrollTop;
@@ -24,7 +24,7 @@ function onLoad() {
 
       var regex = new RegExp(escapeRegExp(className));
 
-      header.className = header.className.replace(regex , '' );
+      header.className = header.className.replace(regex , '').trim();
     }
 
     if(distanceY > shrinkest ) {
@@ -57,6 +57,8 @@ function onLoad() {
       removeClass("small");
     }
 
-  });
+  }
+
+  window.addEventListener("scroll", onScroll);
 }
 window.onload = onLoad();

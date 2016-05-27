@@ -14,7 +14,6 @@ $odd: {% if site.style.article.odd %}{{ site.style.article.odd }}{% else %}white
 $even: {% if site.style.article.even %}{{ site.style.article.even }}{% else %}#222{% endif %}
 
 $article-alpha: {% if site.style.article.image-alpha %}{{ site.style.article.image-alpha }}{% else %}1.0{% endif %}
-
 $accent-color: {% if site.style.accent-color %}{{site.style.accent-color}}{% else %}#F80D62{% endif %}
 
 // Viewport widths
@@ -157,11 +156,18 @@ header.nav-header
 header#header
     position: fixed
 
-    -webkit-transition: height 0.5s
-    -moz-transition: height 0.5s
-    -ms-transition: height 0.5s
-    -o-transition: height 0.5s
-    transition: height 0.5s
+    -webkit-transition: height 0.5s ease
+    -moz-transition: height 0.5s ease
+    -ms-transition: height 0.5s ease
+    -o-transition: height 0.5s ease
+    transition: height 0.5s ease
+
+    nav ul, .logo
+        -webkit-transition: font 0.5s ease
+        -moz-transition: font 0.5s ease
+        -ms-transition: font 0.5s ease
+        -o-transition: font 0.5s ease
+        transition: font 0.5s ease
 
     #title
         -webkit-transition: opacity 0.5s
@@ -184,10 +190,17 @@ header#header
             opacity: 0
 
     &.smallest
-        height: 3.5em
+        height: 2.5em
 
         #title
             opacity: 0
+
+        .logo
+            font-size: 1.5em
+        nav ul
+            font-size: 0.9em
+            margin-top: 0.4em
+            margin-bottom: 0.4em
 
 header.logo-header
     padding: 0px
@@ -211,12 +224,12 @@ header.logo-header
         //background: $accent-color
         display: table-cell
         padding: 0.3em
-        padding-left: 0.15em
-        padding-right: 0.15em
+        padding-left: 0.25em
+        padding-right: 0.25em
         text-align: center
         vertical-align: middle
 
-        a:hover
+        //a:hover
             color: lighten($even, 30%)
             //color: darken($accent-color, 25%)
     #title
@@ -228,13 +241,14 @@ header.logo-header
             margin: 0px
 
 a#selected
-    padding-bottom: 0.3em
+    padding-bottom: 0.2em
     //border-bottom: 0.25em solid $accent-color
     //27.5%
-    border-bottom: 0.25em solid lighten($even,30%)
+    border-bottom: 0.2em solid #FFFFFF
+    //lighten(saturate($even, 20%), 35%)
 
 .draft
-    color: #f80d62
+    color: $accent-color
     &:after
         content: "(DRAFT)"
 
