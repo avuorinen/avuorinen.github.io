@@ -294,7 +294,7 @@ set_target_properties(MyStaticLib MySharedLib PROPERTIES FOLDER MyProject/Librar
 {% endhighlight %}
 
 
-# Complete Example
+# Complete C Example
 
 {% highlight tcl %}
 cmake_minimum_required(VERSION 2.8)
@@ -314,5 +314,27 @@ add_executable(MyExec ${MYPROJECT_SRC})
 target_link_libraries(MyExec PUBLIC MyStaticLib)
 target_compile_definitions(MyExec PRIVATE USE_MYLIBRARY=1)
 
+
+{% endhighlight %}
+
+# CMake Template
+
+{% highlight tcl %}
+
+cmake_minimum_required(VERSION 2.8)
+
+project(MYPROJECT CXX)
+
+file(GLOB SRC
+  ${PROJECT_SOURCE_DIR}/src/*.c
+  ${PROJECT_SOURCE_DIR}/src/*.cpp
+  ${PROJECT_SOURCE_DIR}/include/*.h
+  ${PROJECT_SOURCE_DIR}/include/*.hpp
+)
+
+#add_executable(MyExec ${SRC})
+#add_library(MyExec STATIC ${SRC})
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 {% endhighlight %}
