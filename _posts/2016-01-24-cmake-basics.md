@@ -319,6 +319,8 @@ target_compile_definitions(MyExec PRIVATE USE_MYLIBRARY=1)
 
 # CMake Template
 
+[SDL2 Example Project](https://github.com/avuorinen/CMake-SDL2-Example)
+
 {% highlight tcl %}
 
 cmake_minimum_required(VERSION 2.8)
