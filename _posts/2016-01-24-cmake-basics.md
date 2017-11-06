@@ -2,11 +2,11 @@
 layout:     default
 title:      Cmake Basics
 author:     Atte Vuorinen
-date:       2016-05-21 15:00:00
+date:       2017-11-06 15:00:00
 summary:    This is basic post about Cmake and it's usage.
 categories: cmake
 header: /img/tutorial.jpg
-draft: true
+draft: false
 ---
 
 # Basics
@@ -73,7 +73,7 @@ This part is meant to clear how <small><code><a href="https://cmake.org/cmake/he
 Project command allows user to set project name and project languages.
 Setting the project languages are optional, but it makes sure it uses those languages.
 
-An example Language options are *C*, *CXX*, *FORTRAN* and *NONE*.
+An example Language options are *C*, *CXX*, *CSharp*, *FORTRAN* and *NONE*.
 
 <small>
   <code>
@@ -87,7 +87,7 @@ An example Language options are *C*, *CXX*, *FORTRAN* and *NONE*.
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 
 # Sets minimum Cmake version for the project.
 cmake_minimum_required(VERSION 2.8)
@@ -110,7 +110,7 @@ project(MYPROJECT C)
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 # Simple CMake variable.
 set(Hello "World!")
 # Prints "World!".
@@ -138,7 +138,7 @@ message(${List})
 Setting the source files manually is generally safer option than using automagic way
 this is because you can manually select the source files which causes less surprises and duplicates.
 
-{% highlight tcl %}
+{% highlight cmake %}
 file(GLOB MYPROJECT_SRC
   ${MYPROJECT_SOURCE_DIR}/src/MyFile1.c
   ${MYPROJECT_SOURCE_DIR}/include/MyFile1.h
@@ -152,7 +152,7 @@ file(GLOB MYPROJECT_SRC
 Setting the source files automagically is the fastest way
 this is because you don't need to add every file manually.
 
-{% highlight tcl %}
+{% highlight cmake %}
 # Find .c and .h files from <MYPROJECT_SOURCE_DIR>
 # And set them into <MY_PROJECT_SRC> variable.
 # Note: This doesn't find files in the nested directories.
@@ -175,7 +175,7 @@ file(GLOB MYPROJECT_SRC
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 add_executable(MyExec ${MYPROJECT_SRC})
 
 add_library(MyStaticLib STATIC ${MYLIBRARY_SRC}) # .lib, .a
@@ -193,7 +193,7 @@ Allows you to add header files from the directories.
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 target_include_directories(myExec PUBLIC
   ${MYPROJECT_SOURCE_DIR}/include
   ${MYPROJECT_SOURCE_DIR}/MyLibrary/include
@@ -212,7 +212,7 @@ When linking using *dynamic libraries* linking order matters like normally using
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 target_link_libraries(MyExec PUBLIC MyStaticLib)
 {% endhighlight %}
 
@@ -226,7 +226,7 @@ target_link_libraries(MyExec PUBLIC MyStaticLib)
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 # This sets USE_MYLIBRARY define value to true.
 target_compile_definitions(MyExec PRIVATE USE_MYLIBRARY=1)
 {% endhighlight%}
@@ -244,7 +244,7 @@ This is the common way to use third party libraries.
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 add_subdirectory(${MYPROJECT_SOURCE_DIR}/MyLibrary)
 {% endhighlight %}
 
@@ -266,7 +266,7 @@ In this case it's used to set output directory.
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 install(TARGETS MyExec MyStaticLib MySharedLib
   RUNTIME DESTINATION ${MYPROJECT_SOURCE_DIR}/bin
   ARCHIVE DESTINATION ${MYPROJECT_SOURCE_DIR}/bin/lib
@@ -286,7 +286,7 @@ This one allows you to sort your projects using folders inside the visual studio
   </code>
 </small>
 
-{% highlight tcl %}
+{% highlight cmake %}
 
 set_target_properties(MyExec PROPERTIES FOLDER MyProject)
 set_target_properties(MyStaticLib MySharedLib PROPERTIES FOLDER MyProject/Library)
@@ -296,7 +296,7 @@ set_target_properties(MyStaticLib MySharedLib PROPERTIES FOLDER MyProject/Librar
 
 # Complete C Example
 
-{% highlight tcl %}
+{% highlight cmake %}
 cmake_minimum_required(VERSION 2.8)
 
 project(MYPROJECT C)
@@ -321,7 +321,7 @@ target_compile_definitions(MyExec PRIVATE USE_MYLIBRARY=1)
 
 [SDL2 Example Project](https://github.com/avuorinen/CMake-SDL2-Example)
 
-{% highlight tcl %}
+{% highlight cmake %}
 
 cmake_minimum_required(VERSION 2.8)
 
