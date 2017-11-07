@@ -5,7 +5,7 @@ permalink: /
 
 {% if paginator.posts %}
     {% for page in paginator.posts %}
-    <article>
+    <article class="main">
       <header>
         <h2><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }} {% if page.draft %} <div class="draft"></div>{% endif %}</a></h2>
         <p>{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }}{% endif %}</p>
@@ -19,7 +19,7 @@ permalink: /
         {% endif %}
 
         <!--{{ page.excerpt }} -->
-        
+
       </div>
       <footer>
         <p><a href="{{ page.url | prepend: site.baseurl }}">{{ site.more }} &raquo;</a></p>

@@ -5,7 +5,7 @@ author:     Atte Vuorinen
 date:       2017-11-06 15:00:00
 summary:    This is basic post about Cmake and it's usage.
 categories: cmake
-header: /img/tutorial.jpg
+header: /img/tutorial1.jpg
 draft: false
 ---
 
@@ -274,9 +274,9 @@ install(TARGETS MyExec MyStaticLib MySharedLib
 )
 {% endhighlight%}
 
-### Visual Studio Project Folders
+### Visual Studio's Solution Explorer Folders
 
-This one allows you to sort your projects using folders inside the visual studio.
+This groups your projects using folders.
 
 <small>
   <code>
@@ -335,7 +335,7 @@ file(GLOB SRC
 )
 
 #add_executable(MyExec ${SRC})
-#add_library(MyExec STATIC ${SRC})
+#add_library(MyLib STATIC ${SRC})
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 

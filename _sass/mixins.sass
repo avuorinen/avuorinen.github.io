@@ -17,8 +17,11 @@
 =article_background($background, $anchor, $invert:$background)
     background: $background
     color: reduce($background, 100%)
-
     border-top-color: reduce($background, 12%)
+
+    strong
+        color: reduce($invert, 10%)
+
     tr:hover
         background-color: reduce($background, 7%)
     th

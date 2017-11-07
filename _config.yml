@@ -20,7 +20,7 @@ style:
     description: "white"
     article:
         odd: "#ffffff"
-        even: "#3C3C65" #"#222222"
+        even: "#3C3C65" #"#3C3C65" #"#222222"
         image-alpha: 0.985
 
 links:
