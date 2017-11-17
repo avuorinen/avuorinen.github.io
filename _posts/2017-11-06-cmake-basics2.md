@@ -1,5 +1,5 @@
 ---
-layout:     default
+layout:     post
 title:      CMake Basics II
 author:     Atte Vuorinen
 date:       2017-11-06 15:00:00

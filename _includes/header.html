@@ -1,0 +1,73 @@
+<header id="header"
+        class="logo-header
+            {% if page.url == "/" or page.url == "/index.html" %}
+                main
+            {% endif %}"
+        style="
+            {% if page.header %}
+                {% if page.header != "none" %}
+                    background-image: url({{ page.header }});
+                {% else %}
+
+                {% endif%}
+
+                background-position: 50% 40%;
+
+             {% else %}
+                background-image: url('/img/header.jpg');
+            {% endif %}">
+
+    <div class="overlay">
+        {% unless site.style.headline %}
+            <h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+        {% endunless %}
+
+        <header class="nav-header">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ site.baseurl }}/"{% if page.url == "/" or page.url == "/index.html" %} id="selected"{% endif %}>
+                            Home
+                        </a>
+                    </li>
+                    {% for node in site.pages %}
+                        {% if node.title %}
+                            <li>
+                                <a href="{{ node.url | prepend: site.baseurl }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+
+        <div id="title">
+            <h2>
+                {% if page.title %}
+                    {{ page.title }}
+                    {% if page.draft %}
+                        <div class="draft"></div>
+                    {% endif %}
+                {% else %}
+                    <br>
+                {% endif %}
+
+            </h2>
+            <p>
+                {% if page.author %}
+                    {{ page.author }} •
+                {% endif %}
+
+                {% if page.date %}
+                    <time datetime="{{ page.date | date_to_xmlschema }}">
+                        {{ page.date | date: "%b %-d, %Y" }}
+                    </time>
+                {% endif %}
+
+                {% if page.categories %}
+                    • {{ page.categories | array_to_sentence_string }}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</header>

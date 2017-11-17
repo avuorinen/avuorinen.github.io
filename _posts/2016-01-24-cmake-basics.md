@@ -1,5 +1,5 @@
 ---
-layout:     default
+layout:     post
 title:      Cmake Basics
 author:     Atte Vuorinen
 date:       2017-11-06 15:00:00

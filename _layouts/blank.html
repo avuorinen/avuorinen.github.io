@@ -1,61 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Niklas Buschmann 2015 MIT <http://github.com/niklasbuschmann> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="{{ site.encoding }}">
 
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#4a5a7f">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#4a5a7f">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#4a5a7f">
+    {% include head.html %}
 
-    {% if page.author %}<meta name="author" content="{{ page.author }}">{% endif %}
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <title>{% if page.title %} {{ page.title }} › {% endif %}{{ site.title }}</title>
-    <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url}}">
-    <link href="{{ "/main.css" | prepend: site.baseurl }}" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-    <link rel="icon" type="image/png" href="/img/favicon.png" sizes="64x64">
-    {% feed_meta %}
-    {% if site.comments.disqus and page.comments %}<script src="//{{ site.comments.disqus }}.disqus.com/embed.js" async></script>{% endif %}
-    {% if site.comments.isso and page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>{% endif %}
+    <body>
 
-    <script src="/js/getEmPixels.min.js"></script>
-    <script src="/js/main.js"></script>
-  </head>
-  <body>
     {% assign month = site.time | date: "%-m" %}
 
-  <header id="header" class="logo-header {% if page.url == "/" or page.url == "/index.html" %}main{% endif %}" style="{% if page.header %} {% if page.header != "none" %} background-image: url({{ page.header }}); {% else %} {% endif%}  background-position: 50% 40%; {% elsif month == "5" or month == "6" month == "7" month == "8" month == "9" %} background-image: url('/img/header-summer.jpg'); {% else %} background-image: url('/img/header.jpg'); {% endif %}">
-    <div class="overlay">
-      {% unless site.style.headline %}<h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>{% endunless %}
-    <header class="nav-header">
-      <nav>
-        <ul>
-          <li><a href="{{ site.baseurl }}/"{% if page.url == "/" or page.url == "/index.html" %} id="selected"{% endif %}>Home</a></li>{% for node in site.pages %}{% if node.title %}<li><a href="{{ node.url | prepend: site.baseurl }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a></li>{% endif %}{% endfor %}
-        </ul>
-      </nav>
-    </header>
+    {% include header.html %}
 
-    <div id="title">
-      <h2>{% if page.title %} {{ page.title }} {% if page.draft %} <div class="draft"></div>{% endif %} {% else %}<br>{% endif %}</h2>
-      <p>{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }}{% endif %}</p>
-    </div>
-  </div>
-
-  </header>
     {% if site.style.headline %}<div><h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1></div>{% endif %}
     {% if site.subheading %}<div>{{ site.subheading }}</div>{% endif %}
-{{ content }}
-    <footer>
-      <span><a href="{{ page.url }}">{% if page.author %}{{ page.author }}{% else %}{{site.author}}{% endif %}</a></span>
-      <span>{% for link_hash in site.links %}{% for link in link_hash %}<a href="{{ link[1] }}"><i class="fa fa-{{ link[0] }}-square"></i></a>{% endfor %}{% endfor %}</span>
-      <span>&copy; {{ site.time | date: "%Y" }}</span>
-    </footer>
-  </body>
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    </body>
 </html>
